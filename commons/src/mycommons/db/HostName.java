@@ -7,16 +7,24 @@ public class HostName {
 public void HostNanme(){
 	this.constructorCommon(mycommons.constants.Generic.CS_SPACE);
 }
-public void HostName(String source){
+public HostName(String source){
 	this.constructorCommon(source);
 }
-public void HostName(HostName source){
+public HostName(HostName source){
 	this.constructorCommon(source);
 }
 
 //public methods
 //get,set etc and toString()
-
+public HostName getHostName(){
+	return this;
+}
+public void setHostName(String source){
+	this.hostname=source;
+}
+public void setHostName(HostName source){
+	this.hostname=source.toString();
+}
 public String toString(){
 	return this.hostname;
 }
