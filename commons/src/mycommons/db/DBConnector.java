@@ -9,6 +9,7 @@ public class DBConnector {
 	private String passWord;
 	private String forName;
 	
+	//constructor
 	public DBConnector(String forName,String host,String DBName,String DB_UserName,String DB_UserPassWord){
 		
 		this.host=host;
@@ -18,5 +19,14 @@ public class DBConnector {
 		this.passWord=DB_UserPassWord;
 		this.forName=forName;
 		
+	}
+	//common constructor
+	//private method
+	//public method
+	public java.sql.Connection create(){
+	
+		java.sql.Connection rv;
+		
+		return rv;
 	}
 }
