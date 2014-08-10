@@ -1,5 +1,5 @@
 package mycommons.db;
 
-public class DBField {
+public class Field {
 
 }

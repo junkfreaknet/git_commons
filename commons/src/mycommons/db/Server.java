@@ -1,39 +1,39 @@
 package mycommons.db;
 
-public class HostName {
-	private String hostname;
+public class Server {
+	private String name;
 
 //constructors
 public void HostNanme(){
 	this.constructorCommon(mycommons.constants.Generic.CS_SPACE);
 }
-public HostName(String source){
+public Server(String source){
 	this.constructorCommon(source);
 }
-public HostName(HostName source){
+public Server(Server source){
 	this.constructorCommon(source);
 }
 
 //public methods
 //get,set etc and toString()
-public HostName getHostName(){
+public Server getHostName(){
 	return this;
 }
 public void setHostName(String source){
-	this.hostname=source;
+	this.name=source;
 }
-public void setHostName(HostName source){
-	this.hostname=source.toString();
+public void setHostName(Server source){
+	this.name=source.toString();
 }
 public String toString(){
-	return this.hostname;
+	return this.name;
 }
 
 //private methods
 private void constructorCommon(String source){
-	this.hostname=source;
+	this.name=source;
 }
-private void constructorCommon(HostName source){
+private void constructorCommon(Server source){
 	this.constructorCommon(source.toString());
 }
 }
