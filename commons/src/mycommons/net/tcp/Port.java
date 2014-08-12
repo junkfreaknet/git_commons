@@ -2,33 +2,39 @@ package mycommons.net.tcp;
 
 public class Port {
 
-	private String port;
+	private String value;
 	
 	//constructors
 	public Port(){
-		
+		this.constructorCommon(mycommons.constants.Generic.CS_SPACE);
+	}
+	public Port(mycommons.net.tcp.Port source){
+		this.constructorCommon(source);
+	}
+	public Port(String source){
+		this.constructorCommon(source);
 	}
 	//constructor common
 	private void constructorCommon(String source){
-		this.port=source;
+		this.value=source;
 	}
 	private void constructorCommon(Port source){
-		this.port=source.toString();
+		this.value=source.toStringValue();
 	}
 	//public method
-	public String toString(){
-		return this.port;
+	public String toStringValue(){
+		return this.value;
 	}
-	public Port getPort(){
+	public Port get(){
 		return this;
 	}
 
-	public void setPort(String source){
-		this.port=source;
+	public void setValue(String source){
+		this.value=source;
 	}
 	
-	public void setPort(Port source){
-		this.port=source.toString();
+	public void setValue(Port source){
+		this.value=source.toStringValue();
 	}
 	//private method
 	
