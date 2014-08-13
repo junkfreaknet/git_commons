@@ -23,7 +23,14 @@ public class ParaConnection {
 	
 	//constructors
 	public ParaConnection(){
-		
+		this.forName=new mycommons.db.connection.ForName();
+		this.server=new mycommons.db.connection.Server();
+		this.host=new mycommons.db.connection.Host();
+		this.instance=new mycommons.db.connection.Instance();
+		this.port=new mycommons.net.tcp.Port();
+		this.database=new mycommons.db.connection.DataBase();
+		this.user=new mycommons.db.connection.User();
+		this.password=new mycommons.db.connection.Password();
 	}
 	
 	public ParaConnection(mycommons.db.connection.ParaConnection source){
