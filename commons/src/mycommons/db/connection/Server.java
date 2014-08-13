@@ -1,32 +1,31 @@
 package mycommons.db.connection;
 
-public class DataBase {
+public class Server {
 
 
 	private String name;
 	
 	//constructors
-	public DataBase(){
+	public Server(){
 		this.constructorCommon(mycommons.constants.Generic.CS_SPACE);
 	}
-	public DataBase(String source){
+	public Server(String source){
 		this.constructorCommon(source);
 	}
-	public DataBase(DataBase source){
+	public Server(Server source){
 		this.constructorCommon(source);
 	}
 
 	//public methods
-	public DataBase get(){
+	public Server get(){
 		return this;
 	}
 
-	/***
 	public void setName(String source){
 		this.name=source;
 	}
-	***/
-	public void setName(DataBase source){
+	
+	public void setName(Server source){
 		this.name=source.toStringName();
 	}
 	
@@ -38,7 +37,7 @@ public class DataBase {
 	private void constructorCommon(String Host){
 		this.name=Host;
 	}
-	private void constructorCommon(DataBase source){
+	private void constructorCommon(Server source){
 		this.constructorCommon(source.toStringName());
 	}
 }

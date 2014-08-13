@@ -20,11 +20,11 @@ public class ForName {
 	public ForName get(){
 		return this;
 	}
-
+	/***
 	public void setValue(String source){
 		this.value=source;
 	}
-	
+	***/
 	public void setValue(ForName source){
 		this.value=source.toStringValue();
 	}
