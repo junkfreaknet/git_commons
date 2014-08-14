@@ -3,7 +3,7 @@ package mycommons.constants;
 public class DB {
 
 	//connection general
-	public static final String CONNECTION_PREFIX="";
+	public static final String CONNECTION_PREFIX="jdbc";
 	public static final String CONNECTION_SEPARATOR_COLON=":";
 	public static final String CONNECTION_SEPARATOR_SEMI_COLON=";";
 	public static final String CONNECTION_DOUBLE_SLASH="//";

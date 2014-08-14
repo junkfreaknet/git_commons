@@ -34,13 +34,13 @@ public class Connection {
 		String connectionString;
 		
 		try{
-			//create a db connections
+			//create a db connections			
 			Class.forName(source.getForName().toStringValue());
 			connectionString=this.createConnectionString(source);
 			this.connection=java.sql.DriverManager.getConnection(connectionString);
-			
+
 		}catch(Exception e){
-			
+			//System.out.println("failed in create connection.");
 		}
 
 	}
@@ -49,8 +49,8 @@ public class Connection {
 		
 		String rv;
 		
-		rv=mycommons.constants.DB.CONNECTION_PREFIX+source.getServer().toStringName()+mycommons.constants.DB.CONNECTION_SEPARATOR_COLON;
-		rv=rv+source.getServer().toStringName()+mycommons.constants.DB.CONNECTION_SEPARATOR_COLON+mycommons.constants.DB.CONNECTION_DOUBLE_SLASH;
+		rv=mycommons.constants.DB.CONNECTION_PREFIX+mycommons.constants.DB.CONNECTION_SEPARATOR_COLON+source.getServer().toStringName()+mycommons.constants.DB.CONNECTION_SEPARATOR_COLON;
+		rv=rv+mycommons.constants.DB.CONNECTION_DOUBLE_SLASH;
 		rv=rv+source.getHost().toStringName()+mycommons.constants.DB.CONNECTION_DOUBLE_BACK_SLASH;
 		rv=rv+source.getInstance().toStringName()+mycommons.constants.DB.CONNECTION_SEPARATOR_COLON;
 		rv=rv+source.getPort().toStringValue()+mycommons.constants.DB.CONNECTION_SEPARATOR_SEMI_COLON;
