@@ -28,7 +28,7 @@ public class Date {
 		int rv=mycommons.constants.Generic.CS_ZERO_AS_INT;
 		
 		date=mycommons.routines.generic.Convert.returnYYYYMMDD(date);
-		date=date.substring(mycommons.constants.Generic.CS_ZERO_AS_INT, mycommons.constants.Generic.CS_LEN_DATE_Year_4);
+		date=date.substring(mycommons.constants.Generic.CS_ZERO_AS_INT, mycommons.constants.Date.CS_LEN_DATE_Year_4);
 		rv=Integer.valueOf(date);
 		
 		return rv;
@@ -38,7 +38,7 @@ public class Date {
 		int rv=mycommons.constants.Generic.CS_ZERO_AS_INT;
 		
 		date=mycommons.routines.generic.Convert.returnYYYYMMDD(date);
-		date=date.substring(mycommons.constants.Generic.CS_LEN_DATE_Year_4,mycommons.constants.Generic.CS_LEN_DATE_Year_4+ mycommons.constants.Generic.CS_LEN_DATE_Month);
+		date=date.substring(mycommons.constants.Date.CS_LEN_DATE_Year_4,mycommons.constants.Date.CS_LEN_DATE_Year_4+ mycommons.constants.Date.CS_LEN_DATE_Month);
 		rv=Integer.valueOf(date);
 		
 		return rv;
@@ -52,11 +52,30 @@ public class Date {
 		int rv=mycommons.constants.Generic.CS_ZERO_AS_INT;
 		
 		date=mycommons.routines.generic.Convert.returnYYYYMMDD(date);
-		date=date.substring(mycommons.constants.Generic.CS_LEN_DATE_Year_4+mycommons.constants.Generic.CS_LEN_DATE_Month, mycommons.constants.Generic.CS_LEN_DATE_Year_4+mycommons.constants.Generic.CS_LEN_DATE_Month+mycommons.constants.Generic.CS_LEN_DATE_Day);
+		date=date.substring(mycommons.constants.Date.CS_LEN_DATE_Year_4+mycommons.constants.Date.CS_LEN_DATE_Month, mycommons.constants.Date.CS_LEN_DATE_Year_4+mycommons.constants.Date.CS_LEN_DATE_Month+mycommons.constants.Date.CS_LEN_DATE_Day);
 		rv=Integer.valueOf(date);
 		
 		return rv;
 				
+	}
+	
+	public static int getMonthCausedByJavaUtilCalendar(int month){
+		
+		int rv;
+		rv=month+1;
+		return rv;
+	}
+	public static String getYYYYMMDDHHMMSS(java.util.Calendar calendar){
+		
+		String rv;
+		rv=mycommons.routines.generic.Convert.convert9ToSomeDigit9(calendar.get(java.util.Calendar.YEAR),mycommons.constants.Date.CS_LEN_DATE_Year_4);	//year
+		rv=rv+mycommons.routines.generic.Convert.convert9ToSomeDigit9(mycommons.routines.generic.Date.getMonthCausedByJavaUtilCalendar(calendar.get(java.util.Calendar.MONTH)), mycommons.constants.Date.CS_LEN_DATE_Month);	//month
+		rv=rv+mycommons.routines.generic.Convert.convert9ToSomeDigit9(calendar.get(java.util.Calendar.DAY_OF_MONTH), mycommons.constants.Date.CS_LEN_DATE_Day);	//day of month
+		rv=rv+mycommons.routines.generic.Convert.convert9ToSomeDigit9(calendar.get(java.util.Calendar.HOUR_OF_DAY), mycommons.constants.Date.CS_LEN_TIME_HOUR);	//hour of day
+		rv=rv+mycommons.routines.generic.Convert.convert9ToSomeDigit9(calendar.get(java.util.Calendar.MINUTE), mycommons.constants.Date.CS_LEN_TIME_MINUTE);
+		rv=rv+mycommons.routines.generic.Convert.convert9ToSomeDigit9(calendar.get(java.util.Calendar.SECOND), mycommons.constants.Date.CS_LEN_TIME_SECOND);		
+		
+		return rv;
 	}
 
 }

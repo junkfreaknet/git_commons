@@ -22,15 +22,10 @@ public class Generic {
     //index start value
     public static final int CS_INDEX_START_VALUE=0;
     
+    //no element
+    public static final int CS_ARRAY_HAS_NO_ELEMENT=0;
+    
     //for loop constant
     public static final int CS_FOR_LOOP_LIMITTER=-1;
-    
-    //about date
-    public static final int CS_LEN_DATE_YYYYMMDD=8; //yyyymmdd
-    public static final int CS_LEN_DATE_DATEFORMAT=10;//yyyy/mm/dd
-    public static final int CS_LEN_DATE_Year_4=4;
-    public static final int CS_LEN_DATE_Year_2=2;
-    public static final int CS_LEN_DATE_Month=2;
-    public static final int CS_LEN_DATE_Day=2;
     
 }

@@ -42,18 +42,18 @@ public class Convert {
 		
 		//set year
 		posStart=mycommons.constants.Generic.CS_ZERO_AS_INT;
-		posEnd=mycommons.constants.Generic.CS_LEN_DATE_Year_4;
+		posEnd=mycommons.constants.Date.CS_LEN_DATE_Year_4;
 		rv=in.substring(posStart, posEnd);
 		//System.out.println("year "+String.valueOf(posStart)+","+String.valueOf(posEnd)+","+rv);
 		
 		//set month
-		posStart=posStart+mycommons.constants.Generic.CS_LEN_DATE_Year_4;
-		posEnd=posStart+mycommons.constants.Generic.CS_LEN_DATE_Month;
+		posStart=posStart+mycommons.constants.Date.CS_LEN_DATE_Year_4;
+		posEnd=posStart+mycommons.constants.Date.CS_LEN_DATE_Month;
 		rv=rv+"/"+in.substring(posStart, posEnd);
 		//System.out.println("month "+String.valueOf(posStart)+","+String.valueOf(posEnd)+","+rv);
 		//set day
-		posStart=posStart+mycommons.constants.Generic.CS_LEN_DATE_Month;
-		posEnd=posStart+mycommons.constants.Generic.CS_LEN_DATE_Day;
+		posStart=posStart+mycommons.constants.Date.CS_LEN_DATE_Month;
+		posEnd=posStart+mycommons.constants.Date.CS_LEN_DATE_Day;
 		rv=rv+"/"+in.substring(posStart, posEnd);		
 		//System.out.println("day "+String.valueOf(posStart)+","+String.valueOf(posEnd)+","+rv);
 		
@@ -79,7 +79,7 @@ public class Convert {
 	
 		String rv=mycommons.constants.Generic.CS_SPACE;
 		
-		if(date.length()==mycommons.constants.Generic.CS_LEN_DATE_DATEFORMAT){
+		if(date.length()==mycommons.constants.Date.CS_LEN_DATE_DATEFORMAT){
 			rv=mycommons.routines.generic.Convert.convertDateFormatToYYYYMMDD(date);
 		}else{
 			rv=date;
