@@ -1,22 +1,22 @@
 package mycommons.print;
 
-public class PaperSize {
+public class Sheet {
 	
-	private String  size;
+	private String  name;
 	
 	//constructors
-	public PaperSize(){
+	public Sheet(){
 		this.constructorCommon(mycommons.constants.Generic.CS_SPACE);
 	}
-	public PaperSize(String source){
+	public Sheet(String source){
 		this.constructorCommon(source);
 	}
-	public PaperSize(PaperSize source){
+	public Sheet(Sheet source){
 		this.constructorCommon(source);
 	}
 
 	//public methods
-	public PaperSize get(){
+	public Sheet get(){
 		return this;
 	}
 
@@ -25,19 +25,19 @@ public class PaperSize {
 		this.name=source;
 	}
 	***/
-	public void setSize(PaperSize source){
-		this.size=source.toStringSize();
+	public void setName(Sheet source){
+		this.name=source.toStringSize();
 	}
 
 	public String toStringSize(){
-		return this.size;
+		return this.name;
 	}
 
 	//private methods
 	private void constructorCommon(String size){
-		this.size=size;
+		this.name=size;
 	}
-	private void constructorCommon(PaperSize source){
+	private void constructorCommon(Sheet source){
 		this.constructorCommon(source.toStringSize());
 	}
 }
