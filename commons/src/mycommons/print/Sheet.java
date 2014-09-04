@@ -26,10 +26,10 @@ public class Sheet {
 	}
 	***/
 	public void setName(Sheet source){
-		this.name=source.toStringSize();
+		this.name=source.toStringName();
 	}
 
-	public String toStringSize(){
+	public String toStringName(){
 		return this.name;
 	}
 
@@ -38,6 +38,6 @@ public class Sheet {
 		this.name=size;
 	}
 	private void constructorCommon(Sheet source){
-		this.constructorCommon(source.toStringSize());
+		this.constructorCommon(source.toStringName());
 	}
 }
