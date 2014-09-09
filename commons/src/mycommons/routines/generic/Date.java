@@ -77,5 +77,18 @@ public class Date {
 		
 		return rv;
 	}
-
+	public static String getYYYYMMDD(java.util.Calendar calendar){
+		
+		String rv;
+		rv=mycommons.routines.generic.Convert.convert9ToSomeDigit9(calendar.get(java.util.Calendar.YEAR),mycommons.constants.Date.CS_LEN_DATE_Year_4);	//year
+		rv=rv+mycommons.routines.generic.Convert.convert9ToSomeDigit9(mycommons.routines.generic.Date.getMonthCausedByJavaUtilCalendar(calendar.get(java.util.Calendar.MONTH)), mycommons.constants.Date.CS_LEN_DATE_Month);	//month
+		rv=rv+mycommons.routines.generic.Convert.convert9ToSomeDigit9(calendar.get(java.util.Calendar.DAY_OF_MONTH), mycommons.constants.Date.CS_LEN_DATE_Day);	//day of month
+		return rv;
+		
+	}
+	public static String getYYYYMMDD(){
+		
+		return mycommons.routines.generic.Date.getYYYYMMDD(java.util.Calendar.getInstance());
+		
+	}
 }

@@ -15,4 +15,5 @@ public class Useful {
 		rv=rv+mycommons.routines.generic.Convert.convert9ToSomeDigit9(calendar.get(java.util.Calendar.SECOND), mycommons.constants.Date.CS_LEN_TIME_SECOND);
 		return rv;
 	}
+
 }
