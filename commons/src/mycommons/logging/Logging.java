@@ -2,6 +2,15 @@ package mycommons.logging;
 
 public class Logging {
 
+	public static void info(String msg){
+		java.util.logging.Logger logger=java.util.logging.Logger.getLogger("logger");
+		logger.info(msg);
+	}
+	public static void severe(String msg){
+		java.util.logging.Logger logger=java.util.logging.Logger.getLogger("logger");
+		logger.severe(msg);
+	}
+/***
 	public static java.util.logging.FileHandler getFileHandler(String nameHandler){
 		
 		java.util.logging.FileHandler rv=null;
@@ -16,4 +25,5 @@ public class Logging {
 		}
 		return rv;
 	}
+***/
 }
