@@ -4,7 +4,7 @@ public class CommonsApplication {
 
 	String ApplicationName;
 	
-	public void CommonApplication(String pgName){
+	public CommonsApplication(String pgName){
 		this.ApplicationName=pgName;
 	}
 
