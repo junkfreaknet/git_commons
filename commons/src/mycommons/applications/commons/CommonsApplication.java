@@ -1,27 +1,15 @@
 package mycommons.applications.commons;
 
-public class CommonsApplication {
+//
+//define some methods in application abstractly.
+public interface CommonsApplication {
 
-	String ApplicationName;
-	
-	public CommonsApplication(String pgName){
-		this.ApplicationName=pgName;
-	}
 
 	//when aplication starts
-	public void start(){
-		
-	}
+	public abstract void start();
 	//when end
-	public void end(){
-		
-	}
+	public abstract void end();
 	//on execute pg
-	public void run(){
-		
-	}
-	//get application name
-	public String getNameApplication(){
-		return this.ApplicationName;
-	}
+	public void run();
+
 }
