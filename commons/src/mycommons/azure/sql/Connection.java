@@ -1,5 +1,6 @@
 package mycommons.azure.sql;
 
-public class Connection {
+public class Connection extends mycommons.db.connection.Connection{
+
 
 }
