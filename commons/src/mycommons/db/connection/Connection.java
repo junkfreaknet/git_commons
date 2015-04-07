@@ -24,6 +24,9 @@ public class Connection {
 		this.constructorCommon(para);
 		
 	}
+	public Connection(){
+	
+	}
 	***/
 	public Connection(mycommons.db.connection.ParaConnection source){
 		this.constructorCommon(source);
