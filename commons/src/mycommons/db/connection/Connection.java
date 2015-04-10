@@ -28,8 +28,16 @@ public class Connection {
 	
 	}
 	***/
+	//constructor no.1
 	public Connection(mycommons.db.connection.ParaConnection source){
 		this.constructorCommon(source);
+	}
+	//constructor no.2
+	public Connection(mycommons.db.connection.Connection source){
+		
+		mycommons.db.connection.ParaConnection para;
+		
+		this.constructorCommon(para);
 	}
 	//common constructor
 	private void constructorCommon(mycommons.db.connection.ParaConnection source){

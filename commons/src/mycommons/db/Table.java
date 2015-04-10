@@ -23,4 +23,16 @@ public class Table {
 		this.name=in_name;
 		
 	}
+	
+	//get method
+	public String getName(){
+		
+		return this.name;
+		
+	}
+	public Table get(){
+		
+		return this;
+		
+	}
 }
