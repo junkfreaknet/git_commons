@@ -31,14 +31,21 @@ public class Connection {
 	//constructor no.1
 	public Connection(mycommons.db.connection.ParaConnection source){
 		this.constructorCommon(source);
+		
 	}
 	//constructor no.2
 	public Connection(mycommons.db.connection.Connection source){
 		
 		mycommons.db.connection.ParaConnection para;
-		
+		para=source.para;
 		this.constructorCommon(para);
 	}
+	//constructor no.3
+	public Connection(mycommons.db.connection.ConnectionString connectionString,mycommons.db.connection.ParaConnection para){
+		
+		this.constructorcommon(connectionString.getConnectionString(), para);
+	}
+	
 	//common constructor
 	private void constructorCommon(mycommons.db.connection.ParaConnection source){
 
@@ -48,12 +55,24 @@ public class Connection {
 			//create a db connections			
 			Class.forName(source.getForName().toStringValue());
 			connectionString=this.createConnectionString(source);
+			//System.out.println("TEST A CONNECTION STRING IS "+connectionString);
 			this.connection=java.sql.DriverManager.getConnection(connectionString);
-
 		}catch(Exception e){
 			//System.out.println("failed in create connection.");
 		}
 
+	}
+	
+	//commons constructor no.2
+	private void constructorcommon(String connectionString,mycommons.db.connection.ParaConnection para){
+		
+		try{
+			Class.forName(para.getForName().toStringValue());
+			this.connection=java.sql.DriverManager.getConnection(connectionString);
+		}catch(Exception e){
+			//System.out.println(connectionString);
+			
+		}
 	}
 	//private methods
 	private String createConnectionString(mycommons.db.connection.ParaConnection source){
