@@ -2,7 +2,7 @@ package mycommons.db.connection;
 
 public class ConnectionString {
 
-	private String connectionString;
+	private String connectionStringValue;
 	
 	public ConnectionString(){
 		this.commonConstructor(mycommons.constants.Generic.CS_SPACE);
@@ -16,19 +16,19 @@ public class ConnectionString {
 	}
 	//
 	private void commonConstructor(String in){
-		this.connectionString=in;
+		this.connectionStringValue=in;
 	}
 	
 	//
 	public String getConnectionString(){
-		return this.connectionString;
+		return this.connectionStringValue;
 	}
 	
 	//
 	public void SetString(String in){
-		this.connectionString=in;
+		this.connectionStringValue=in;
 	}
 	public void SetString(mycommons.db.connection.ConnectionString in){
-		this.connectionString=in.getConnectionString();
+		this.connectionStringValue=in.getConnectionString();
 	}
 }

@@ -92,9 +92,11 @@ public class ParaConnection {
 	public mycommons.db.connection.Instance getInstance(){
 		return this.instance;
 	}
+	
 	public mycommons.db.connection.ConnectionString getConnectionString(){
 		return this.connectionString;
 	}
+	
 	//set For Name
 	/***
 	public void setForName(String source){
@@ -164,7 +166,9 @@ public class ParaConnection {
 	}
 	
 	//Connection String 
+	
 	public void setConnectionString(mycommons.db.connection.ConnectionString source){
 		this.connectionString.SetString(source);
 	}
+	
 }

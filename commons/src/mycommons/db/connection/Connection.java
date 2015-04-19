@@ -55,7 +55,6 @@ public class Connection {
 			//create a db connections			
 			Class.forName(source.getForName().toStringValue());
 			connectionString=this.createConnectionString(source);
-			//System.out.println("TEST A CONNECTION STRING IS "+connectionString);
 			this.connection=java.sql.DriverManager.getConnection(connectionString);
 		}catch(Exception e){
 			//System.out.println("failed in create connection.");
