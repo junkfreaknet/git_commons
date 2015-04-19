@@ -57,7 +57,8 @@ public class Connection {
 			connectionString=this.createConnectionString(source);
 			this.connection=java.sql.DriverManager.getConnection(connectionString);
 		}catch(Exception e){
-			//System.out.println("failed in create connection.");
+			System.out.println(e.toString());
+			System.out.println("failed in create connection.");
 		}
 
 	}
