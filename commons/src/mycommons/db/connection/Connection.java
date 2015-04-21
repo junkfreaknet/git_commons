@@ -56,10 +56,11 @@ public class Connection {
 			Class.forName(source.getForName().toStringValue());
 			connectionString=this.createConnectionString(source);
 			this.connection=java.sql.DriverManager.getConnection(connectionString);
-			System.out.println(connectionString);
+			//System.out.println(connectionString);
 		}catch(Exception e){
-			//System.out.println(e.toString());
-			//System.out.println("failed in create connection.");
+			mycommons.logging.Logging.severe(e.toString());
+			mycommons.logging.Logging.severe("failed in create connection.stop program.");
+			System.exit(mycommons.constants.System.CS_EXIT_ERROR);
 		}
 
 	}
@@ -70,10 +71,11 @@ public class Connection {
 		try{
 			Class.forName(para.getForName().toStringValue());
 			this.connection=java.sql.DriverManager.getConnection(connectionString);
-			System.out.println(connectionString);
-		}catch(Exception e){
 			//System.out.println(connectionString);
-			
+		}catch(Exception e){
+			mycommons.logging.Logging.severe(e.toString());
+			mycommons.logging.Logging.severe("failed in create connection 2.stop program.");
+			System.exit(mycommons.constants.System.CS_EXIT_ERROR);			
 		}
 	}
 	//private methods
