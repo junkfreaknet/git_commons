@@ -56,9 +56,10 @@ public class Connection {
 			Class.forName(source.getForName().toStringValue());
 			connectionString=this.createConnectionString(source);
 			this.connection=java.sql.DriverManager.getConnection(connectionString);
+			System.out.println(connectionString);
 		}catch(Exception e){
-			System.out.println(e.toString());
-			System.out.println("failed in create connection.");
+			//System.out.println(e.toString());
+			//System.out.println("failed in create connection.");
 		}
 
 	}
@@ -69,6 +70,7 @@ public class Connection {
 		try{
 			Class.forName(para.getForName().toStringValue());
 			this.connection=java.sql.DriverManager.getConnection(connectionString);
+			System.out.println(connectionString);
 		}catch(Exception e){
 			//System.out.println(connectionString);
 			

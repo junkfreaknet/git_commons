@@ -21,6 +21,8 @@ public class ParaConnection {
 	private mycommons.db.connection.Password password;
 
 	private mycommons.db.connection.ConnectionString connectionString;
+	//private mycommons.db.connection.Product product;
+	
 	
 	//constructors
 	public ParaConnection(){
@@ -32,7 +34,9 @@ public class ParaConnection {
 		this.database=new mycommons.db.connection.DataBase();
 		this.user=new mycommons.db.connection.User();
 		this.password=new mycommons.db.connection.Password();
+		
 		this.connectionString=new mycommons.db.connection.ConnectionString();
+		//this.product=new mycommons.db.connection.Product();
 		
 	}
 	
@@ -47,6 +51,7 @@ public class ParaConnection {
 		this.password=source.getPassWord();
 		
 		this.connectionString=source.getConnectionString();
+		
 	}
 	public ParaConnection(mycommons.db.connection.ForName inForName,mycommons.db.connection.Server inServer,mycommons.db.connection.Host inHost,mycommons.net.tcp.Port inPort,mycommons.db.connection.DataBase inDataBase,mycommons.db.connection.User inUser,mycommons.db.connection.Password inPassWord){
 		this.forName=inForName;
@@ -96,7 +101,11 @@ public class ParaConnection {
 	public mycommons.db.connection.ConnectionString getConnectionString(){
 		return this.connectionString;
 	}
-	
+	/***
+	public mycommons.db.connection.Product getProduct(){
+		return this.product;
+	}
+	***/
 	//set For Name
 	/***
 	public void setForName(String source){
@@ -170,5 +179,9 @@ public class ParaConnection {
 	public void setConnectionString(mycommons.db.connection.ConnectionString source){
 		this.connectionString.SetString(source);
 	}
-	
+	/***
+	public void setProduct(mycommons.db.connection.Product source){
+		this.product.setName(source);
+	}
+	***/
 }
