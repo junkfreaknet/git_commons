@@ -4,16 +4,29 @@ public class FieldName {
 
 	private String name;
 	
-	public FieldName(FieldName in_fieldname){
+	//constructors
+	public FieldName(FieldName in_name){
 		
-		this.name=in_fieldname.name;
+		this.constructorCommon(in_name);
 	}
-	public FieldName(String in_fieldname){
-		this.name=in_fieldname;
+	public FieldName(String in_name){
+		
+		this.constructorCommon(in_name);
+	}
+	public FieldName(){
+		this.constructorCommon(mycommons.constants.Generic.CS_SPACE);
 	}
 	
-	public void setName(FieldName in_fieldname){
-		
+	//constructor common
+	private void constructorCommon(FieldName in_name){
+		this.name=this.getName();
+	}
+	private void constructorCommon(String in_name){
+		this.name=in_name;
+	}
+	//methods public
+	public void setName(FieldName in_name){
+		this.name=in_name.getName();
 	}
 	public String getName(){
 		return this.name;

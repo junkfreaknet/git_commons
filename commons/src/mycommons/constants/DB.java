@@ -18,7 +18,10 @@ public class DB {
 	public static final String MS_SQL_SERVER_SERVER_NAME="sqlserver";
 	
 	//products of database servers
-	
 	public static final String SERVER_SQLSERVER="sqlserver";
 	public static final String SERVER_MYSQL="mysql";
+	
+	//index of resultset metadata start value
+	public static final int RESULTSET_INDEX_START_VALUE=1;
+	
 }

@@ -2,36 +2,36 @@ package mycommons.db;
 
 public class FieldType {
 
-	private String type;
-	private int type_i;
-	
+	private int type;
+
+	//constructors
 	public FieldType(FieldType in_type){
 		this.constructorCommon(in_type);
 	}
-	public FieldType(String in_type,int in_type_i){
-		this.type=in_type;
-		this.type_i=in_type_i;
-		this.constructorCommon(new mycommons.db.FieldType(in_type,in_type_i));
-		
+	public FieldType(int in_type){
+		this.constructorCommon(in_type);
 	}
 	
-	//constructor commons
+	public FieldType(){
+		this.constructorCommon(mycommons.constants.Generic.CS_ZERO_AS_INT);
+	}
+	
+	//constructor common
 	private void constructorCommon(mycommons.db.FieldType in_type){
-		
+		this.type=in_type.getType();
+	}
+	private void constructorCommon(int in_type){
+		this.type=in_type;
 	}
 	
 	//public methods
-	public String getType(){
+	public int getType(){
 		return this.type;
 	}
-	public int getType_i(){
-		return this.type_i;
+	public void setType(FieldType in_type){
+		this.type=this.getType();
 	}
-	//
-	public void setType(String in_type){
+	public void setType_i(int in_type){
 		this.type=in_type;
-	}
-	public void setType_i(int in_type_i){
-		this.type_i=in_type_i;
 	}
 }
