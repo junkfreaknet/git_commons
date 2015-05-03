@@ -29,11 +29,14 @@ public class FieldTypes {
 	public static final String OTHER="OTHER";
 	public static final String REAL="REAL";
 	public static final String REF="REF";
+	public static final String ROWID="ROWID";
 	public static final String SMALLINT="SMALLINT";
 	public static final String SQLXML="SQLXML";
 	public static final String STRUCT="STRUCT";
 	public static final String TIME="TIME";
+	public static final String TIME_WITH_TIMEZONE="TIME_WITH_TIMEZONE";
 	public static final String TIMESTAMP="TIMESTAMP";
+	public static final String TIMESTAMP_WITH_TIMEZONE="TIMESTAMP_WITH_TIMEZONE";
 	public static final String TINYINT="TINYINT";
 	public static final String VARBINARY="VARBINARY";
 	public static final String VARCHAR="VARCHAR";

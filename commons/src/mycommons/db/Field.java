@@ -47,9 +47,16 @@ public class Field {
 	public mycommons.db.FieldType getType(){
 		return this.type;
 	}
-	public mycommons.db.FieldTypeSQL getTypeSql(){
-	
+	//this method is available after being sat type. 
+	public mycommons.db.FieldTypeSQL getTypeSQL(){
+		
+		mycommons.db.FieldTypeSQL fldTypeSQL=new mycommons.db.FieldTypeSQL(this.type);
+		return fldTypeSQL;
 	}
+	//public mycommons.db.FieldTypeSQL getTypeSql(){
+	
+	//}
+	
 	/***
 	public mycommons.db.FieldTypeSQL getTypeSQL(){
 		return this.typeSQL;
