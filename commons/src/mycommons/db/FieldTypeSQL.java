@@ -133,15 +133,19 @@ public class FieldTypeSQL {
 		case java.sql.Types.TIME:
 			rv=mycommons.constants.db.sql.ddl.FieldTypes.TIME;
 			break;
+		/***
 		case java.sql.Types.TIME_WITH_TIMEZONE:
 			rv=mycommons.constants.db.sql.ddl.FieldTypes.TIME_WITH_TIMEZONE;
 			break;
+		***/
 		case java.sql.Types.TIMESTAMP:
 			rv=mycommons.constants.db.sql.ddl.FieldTypes.TIMESTAMP;
 			break;
+		/***
 		case java.sql.Types.TIMESTAMP_WITH_TIMEZONE:
 			rv=mycommons.constants.db.sql.ddl.FieldTypes.TIMESTAMP_WITH_TIMEZONE;
 			break;
+		***/
 		case java.sql.Types.TINYINT:
 			rv=mycommons.constants.db.sql.ddl.FieldTypes.TINYINT;
 			break;
