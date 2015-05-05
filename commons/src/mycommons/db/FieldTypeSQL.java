@@ -164,20 +164,5 @@ public class FieldTypeSQL {
 		
 		return rv;
 	}
-	
-	//method public
-	/***
-	public String getTypeSQL(){
-		return this.Type;
-	}
-	public void setTypeSQL(FieldTypeSQL in_typesql){
-		this.Type=in_typesql.getTypeSQL();
-	}
-	public void setTypeSQL(mycommons.db.FieldType in_type){
-		
-	}
-	public void setTypeSQL(String in_typesql){
-		this.Type=in_typesql;
-	}
-	***/
+
 }
