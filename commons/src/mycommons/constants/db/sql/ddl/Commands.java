@@ -16,4 +16,10 @@ public class Commands {
 	public static final String SPACE=mycommons.constants.Generic.CS_ONE_BLANK;
 	//","
 	public static final String FIELD_SEPARATOR=",";
+	//length "("
+	public static final String LENGTH_LEFT="(";
+	//length ")"
+	public static final String LENGTH_RIGHT=")";
+	//not null
+	public static final String NOT_NULL="not null";
 }

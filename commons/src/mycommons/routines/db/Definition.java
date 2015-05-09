@@ -34,7 +34,59 @@ public class Definition {
 		rv=rv+in_field.getName().getName()+mycommons.constants.db.sql.ddl.Commands.SPACE;
 		//type
 		rv=rv+in_field.getTypeSQL().getTypeSQLString(in_field.getType());
+		//length
+		rv=rv+createSqlStringCreateTable_a_Field_Length(in_field);
+		// "null" or "not null"
+		rv=rv+mycommons.constants.Generic.CS_ONE_BLANK+mycommons.constants.db.sql.ddl.Commands.NOT_NULL;
 		
 		return rv;
+	}
+	//generate "null" or "not null"
+	private static String createSqlStringCreateTable_Not_Null(mycommons.db.Field in_field){
+		
+		String rv=mycommons.constants.Generic.CS_SPACE;
+		
+		if(in_field.getIsNullable().getIsNullale()==java.sql.ResultSetMetaData.columnNoNulls){
+			rv=mycommons.constants.db.sql.ddl.Commands.NOT_NULL;
+		}
+		return rv;
+	}
+	//generate length
+	private static String createSqlStringCreateTable_a_Field_Length(mycommons.db.Field in_field){
+		
+		String rv=mycommons.constants.Generic.CS_SPACE;
+		
+		if (isLengthRequired(in_field)){
+			rv=rv+mycommons.constants.db.sql.ddl.Commands.LENGTH_LEFT+in_field.getLength().getLength()+mycommons.constants.db.sql.ddl.Commands.LENGTH_RIGHT;
+		}
+		return rv;
+		
+	}
+	private static boolean isLengthRequired(mycommons.db.Field in_field){
+		
+		boolean rv=false;
+
+		String type=in_field.getTypeSQL().getTypeSQLString(in_field.getType());
+		
+		if(type==mycommons.constants.db.sql.ddl.FieldTypes.NUMERIC){
+			rv=true;
+		}
+		if(type==mycommons.constants.db.sql.ddl.FieldTypes.DECIMAL){
+			rv=true;
+		}
+		if(type==mycommons.constants.db.sql.ddl.FieldTypes.CHAR){
+			rv=true;
+		}
+		if(type==mycommons.constants.db.sql.ddl.FieldTypes.NCHAR){
+			rv=true;
+		}
+		if(type==mycommons.constants.db.sql.ddl.FieldTypes.VARCHAR){
+			rv=true;
+		}
+		if(type==mycommons.constants.db.sql.ddl.FieldTypes.NVARCHAR){
+			rv=true;
+		}
+		return rv;
+		
 	}
 }
