@@ -37,7 +37,7 @@ public class Definition {
 		//length
 		rv=rv+createSqlStringCreateTable_a_Field_Length(in_field);
 		// "null" or "not null"
-		rv=rv+mycommons.constants.Generic.CS_ONE_BLANK+mycommons.constants.db.sql.ddl.Commands.NOT_NULL;
+		rv=rv+mycommons.constants.Generic.CS_ONE_BLANK+createSqlStringCreateTable_Not_Null(in_field);
 		
 		return rv;
 	}
@@ -45,7 +45,8 @@ public class Definition {
 	private static String createSqlStringCreateTable_Not_Null(mycommons.db.Field in_field){
 		
 		String rv=mycommons.constants.Generic.CS_SPACE;
-		
+		mycommons.db.IsFieldNullable isn=in_field.getIsNullable();
+		//System.out.println(isn.getIsNullale());
 		if(in_field.getIsNullable().getIsNullale()==java.sql.ResultSetMetaData.columnNoNulls){
 			rv=mycommons.constants.db.sql.ddl.Commands.NOT_NULL;
 		}

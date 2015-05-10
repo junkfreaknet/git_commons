@@ -20,6 +20,7 @@ public class IsFieldNullable {
 	}
 	private void constructorCommon(int in_length){
 		this.isNullable=in_length;
+		//System.out.println(this.isNullable);
 	}
 	
 	//getter

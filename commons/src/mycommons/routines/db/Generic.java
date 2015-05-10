@@ -16,6 +16,7 @@ public class Generic {
 				fld.setType(new mycommons.db.FieldType(rstMD.getColumnType(i)));
 				fld.setLength(new mycommons.db.FieldLength(rstMD.getColumnDisplaySize(i)));
 				fld.setIsNullable(new mycommons.db.IsFieldNullable(rstMD.isNullable(i)));
+				//System.out.println(rstMD.isNullable(i));
 				//System.out.println("lengt is "+rstMD.getColumnDisplaySize(i));
 				rv.add(fld);
 			}
