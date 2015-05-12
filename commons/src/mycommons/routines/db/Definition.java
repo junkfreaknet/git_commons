@@ -10,7 +10,7 @@ public class Definition {
 		String sql=mycommons.constants.Generic.CS_SPACE;
 		
 		//first
-		sql=sql+mycommons.constants.db.sql.ddl.Commands.CREATE_TABLE+in_table.getName()+mycommons.constants.db.sql.ddl.Commands.FIELDS_START;
+		sql=sql+mycommons.constants.db.sql.ddl.Commands.COMMAND_CREATE_TABLE+in_table.getName()+mycommons.constants.db.sql.ddl.Commands.FIELDS_START;
 		//fields
 		for(int i=0;i<in_fields.size();i++){
 			sql=sql+createSqlStringCreateTable_a_Field(in_fields.get(i));

@@ -3,7 +3,8 @@ package mycommons.constants.db.sql.ddl;
 public class Commands {
 
 	//sql ddl commands
-	public static final String CREATE_TABLE="CREATE TABLE ";
+	public static final String COMMAND_CREATE_TABLE="CREATE TABLE ";
+	public static final String COMMAND_INSERT_INTO="INSERT INTO ";
 	
 	//*******************************************************
 	//generics
@@ -22,4 +23,7 @@ public class Commands {
 	public static final String LENGTH_RIGHT=")";
 	//not null
 	public static final String NOT_NULL="not null";
+	
+	//values
+	public static final String VALUES=" values ";
 }
