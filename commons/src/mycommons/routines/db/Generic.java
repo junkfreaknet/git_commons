@@ -1,12 +1,12 @@
 package mycommons.routines.db;
 
 public class Generic {
-	public static java.util.ArrayList<mycommons.db.Field> getFields(java.sql.ResultSet in_resultset){
+	public static java.util.ArrayList<mycommons.db.Field> getFields(java.sql.ResultSet para_in_resultset){
 		
 		java.util.ArrayList<mycommons.db.Field> rv=new java.util.ArrayList<mycommons.db.Field>();
 		
 		try{
-			java.sql.ResultSetMetaData rstMD=in_resultset.getMetaData();
+			java.sql.ResultSetMetaData rstMD=para_in_resultset.getMetaData();
 			//System.out.println("column count is "+rstMD.getColumnCount());
 			for(int i=mycommons.constants.DB.RESULTSET_INDEX_START_VALUE;i<=rstMD.getColumnCount();i++){
 				//System.out.println("i is "+i);
