@@ -5,17 +5,31 @@ public class Definition {
 	//****************************************************************
 	//create table
 	//****************************************************************
-	public static void createTablee(java.sql.Statement para_statement,mycommons.db.Table para_table,java.util.ArrayList<mycommons.db.Field> para_fields){
+	public static void createTable(mycommons.db.connection.Connection para_Connection,mycommons.db.Table para_Table,java.util.ArrayList<mycommons.db.Field> para_Fields){
+		
+		//first of all. delete target table if exist.
+		mycommons.routines.db.Manipulate.DeleteTable(para_Connection, para_Table);
+		//create a table
+		try{
+			mycommons.routines.db.Definition.createTable(para_Connection.getConnection().createStatement(), para_Table, para_Fields);
+		}catch(Exception e){
+			mycommons.logging.Logging.severe("failed in delete and creating table. stop program.");
+			mycommons.logging.Logging.severe(e.toString());
+			System.exit(mycommons.constants.System.CS_EXIT_ERROR);			
+		}
+	}
+	public static void createTable(java.sql.Statement para_statement,mycommons.db.Table para_table,java.util.ArrayList<mycommons.db.Field> para_fields){
 
 		try{
 			mycommons.db.SQLString sqlobj=mycommons.routines.db.Definition.createSqlStringCreateTable(para_table, para_fields);
 			para_statement.execute(sqlobj.toString());
 		}catch(Exception e){
-			mycommons.logging.Logging.severe("failed in creating table. stop program.");
+			mycommons.logging.Logging.severe("failed in creating a table. stop program.");
 			mycommons.logging.Logging.severe(e.toString());
 			System.exit(mycommons.constants.System.CS_EXIT_ERROR);
 		}
-	}
+	}	
+	
 	//****************************************************************
 	//generate a "create table " SQL string
 	//****************************************************************
