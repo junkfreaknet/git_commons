@@ -113,6 +113,17 @@ public class Manipulate {
 		
 		String rv=mycommons.constants.Generic.CS_SPACE;
 		
+		try{
+			java.sql.ResultSetMetaData rstMetaData=para_ResultSet_From.getMetaData();
+			for(int i=1;i<rstMetaData.getColumnCount();i++){
+				rv=rv+para_ResultSet_From.getString(i);
+				rv=rv+",";
+			}
+		}catch(Exception e){
+			mycommons.logging.Logging.severe(e.toString());
+			mycommons.logging.Logging.severe("Creating sql string for insert values is failed.stop this program");
+			System.exit(mycommons.constants.System.CS_EXIT_ERROR);			
+		}
 		return rv;
 	}
 }
