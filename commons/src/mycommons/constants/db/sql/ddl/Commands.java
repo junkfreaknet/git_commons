@@ -17,6 +17,8 @@ public class Commands {
 	public static final String SPACE=mycommons.constants.Generic.CS_ONE_BLANK;
 	//","
 	public static final String FIELD_SEPARATOR=",";
+	//quotation mark
+	public static final String VALUE_QUOTATIONARK="'";
 	//length "("
 	public static final String LENGTH_LEFT="(";
 	//length ")"
