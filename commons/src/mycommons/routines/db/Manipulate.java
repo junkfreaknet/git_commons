@@ -1,5 +1,7 @@
 package mycommons.routines.db;
 
+import java.nio.charset.Charset;
+
 import mycommons.db.SQLString;
 
 public class Manipulate {
@@ -163,6 +165,27 @@ public class Manipulate {
 		
 		String rv=mycommons.constants.Generic.CS_SPACE;
 		try{
+			//String buff=new String(para_ResultSet.getString(para_Column_Idx).getBytes("MS932"),"MS932");
+			//.forName("Windows-31j");
+			java.sql.ResultSetMetaData rstMetaData=para_ResultSet.getMetaData();
+			if(mycommons.routines.db.Manipulate.isSqlValueRequiresQuotationMark(rstMetaData, para_Column_Idx,para_ResultSet.getString(para_Column_Idx))){
+				rv=rv+mycommons.routines.db.Manipulate.getUnicode_N(rstMetaData, para_Column_Idx,para_ResultSet.getString(para_Column_Idx))+mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK+para_ResultSet.getString(para_Column_Idx)+mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK;
+				//rv=rv+mycommons.routines.db.Manipulate.getUnicode_N(rstMetaData, para_Column_Idx,para_ResultSet.getString(para_Column_Idx))+mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK+buff+mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK;
+			}else{
+				rv=para_ResultSet.getString(para_Column_Idx);
+			}
+		}catch(Exception e){
+			mycommons.logging.Logging.severe(e.toString());
+			mycommons.logging.Logging.severe("Creating sql string for insert a value is failed.stop this program");
+			System.exit(mycommons.constants.System.CS_EXIT_ERROR);
+		}
+		return rv;
+	}
+	/***
+	private static String createSQLInsertRecordValuesGetFieldValue(java.sql.ResultSet para_ResultSet,int para_Column_Idx){
+		
+		String rv=mycommons.constants.Generic.CS_SPACE;
+		try{
 			java.sql.ResultSetMetaData rstMetaData=para_ResultSet.getMetaData();
 			if(mycommons.routines.db.Manipulate.isSqlValueRequiresQuotationMark(rstMetaData, para_Column_Idx,para_ResultSet.getString(para_Column_Idx))){
 				rv=rv+mycommons.routines.db.Manipulate.getUnicode_N(rstMetaData, para_Column_Idx,para_ResultSet.getString(para_Column_Idx))+mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK+para_ResultSet.getString(para_Column_Idx)+mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK;
@@ -176,6 +199,7 @@ public class Manipulate {
 		}
 		return rv;
 	}
+	***/
 	private static String getUnicode_N(java.sql.ResultSetMetaData para_rstMetaData,int para_Column_Idx,String value){
 		
 		String rv=mycommons.constants.Generic.CS_SPACE;;
@@ -253,4 +277,5 @@ public class Manipulate {
 		}
 		return rv;
 	}
+
 }
