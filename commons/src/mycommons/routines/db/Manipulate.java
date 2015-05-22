@@ -159,15 +159,15 @@ public class Manipulate {
 		}
 		return rv;
 	}
-	private static String createSQLInsertRecordValuesGetFieldValue(java.sql.ResultSet para_ResultSet,int para_i){
+	private static String createSQLInsertRecordValuesGetFieldValue(java.sql.ResultSet para_ResultSet,int para_Column_Idx){
 		
 		String rv=mycommons.constants.Generic.CS_SPACE;
 		try{
 			java.sql.ResultSetMetaData rstMetaData=para_ResultSet.getMetaData();
-			if(mycommons.routines.db.Manipulate.isSqlValueRequiresQuotationMark(rstMetaData, para_i,para_ResultSet.getString(para_i))){
-				rv=mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK+para_ResultSet.getString(para_i)+mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK;
+			if(mycommons.routines.db.Manipulate.isSqlValueRequiresQuotationMark(rstMetaData, para_Column_Idx,para_ResultSet.getString(para_Column_Idx))){
+				rv=rv+mycommons.routines.db.Manipulate.getUnicode_N(rstMetaData, para_Column_Idx,para_ResultSet.getString(para_Column_Idx))+mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK+para_ResultSet.getString(para_Column_Idx)+mycommons.constants.db.sql.ddl.Commands.VALUE_QUOTATIONARK;
 			}else{
-				rv=para_ResultSet.getString(para_i);
+				rv=para_ResultSet.getString(para_Column_Idx);
 			}
 		}catch(Exception e){
 			mycommons.logging.Logging.severe(e.toString());
@@ -176,7 +176,46 @@ public class Manipulate {
 		}
 		return rv;
 	}
-	private static boolean isSqlValueRequiresQuotationMark(java.sql.ResultSetMetaData para_rstMetaData,int i,String value){
+	private static String getUnicode_N(java.sql.ResultSetMetaData para_rstMetaData,int para_Column_Idx,String value){
+		
+		String rv=mycommons.constants.Generic.CS_SPACE;;
+		
+		if(value==null){
+			return rv;
+		}
+		try{
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.CHAR){
+				rv=mycommons.constants.db.sql.ddl.Commands.UNICODE_N;
+			}
+			/***
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.DATE){
+				rv=true;
+			}
+			***/
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.LONGNVARCHAR){
+				rv=mycommons.constants.db.sql.ddl.Commands.UNICODE_N;
+			}
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.LONGVARCHAR){
+				rv=mycommons.constants.db.sql.ddl.Commands.UNICODE_N;
+			}
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.NCHAR){
+				rv=mycommons.constants.db.sql.ddl.Commands.UNICODE_N;
+			}
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.NVARCHAR){
+				rv=mycommons.constants.db.sql.ddl.Commands.UNICODE_N;
+			}
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.VARCHAR){
+				rv=mycommons.constants.db.sql.ddl.Commands.UNICODE_N;
+			}			
+			
+		}catch(Exception e){
+			mycommons.logging.Logging.severe(e.toString());
+			mycommons.logging.Logging.severe("Creating sql string for insert a value quotation mark requires is failed.stop this program");
+			System.exit(mycommons.constants.System.CS_EXIT_ERROR);			
+		}		
+		return rv;
+	}
+	private static boolean isSqlValueRequiresQuotationMark(java.sql.ResultSetMetaData para_rstMetaData,int para_Column_Idx,String value){
 		
 		boolean rv=false;
 		
@@ -185,25 +224,25 @@ public class Manipulate {
 		}
 		//check field type
 		try{
-			if(para_rstMetaData.getColumnType(i)==java.sql.Types.CHAR){
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.CHAR){
 				rv=true;
 			}
-			if(para_rstMetaData.getColumnType(i)==java.sql.Types.DATE){
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.DATE){
 				rv=true;
 			}
-			if(para_rstMetaData.getColumnType(i)==java.sql.Types.LONGNVARCHAR){
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.LONGNVARCHAR){
 				rv=true;
 			}
-			if(para_rstMetaData.getColumnType(i)==java.sql.Types.LONGVARCHAR){
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.LONGVARCHAR){
 				rv=true;
 			}
-			if(para_rstMetaData.getColumnType(i)==java.sql.Types.NCHAR){
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.NCHAR){
 				rv=true;
 			}
-			if(para_rstMetaData.getColumnType(i)==java.sql.Types.NVARCHAR){
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.NVARCHAR){
 				rv=true;
 			}
-			if(para_rstMetaData.getColumnType(i)==java.sql.Types.VARCHAR){
+			if(para_rstMetaData.getColumnType(para_Column_Idx)==java.sql.Types.VARCHAR){
 				rv=true;
 			}			
 			
