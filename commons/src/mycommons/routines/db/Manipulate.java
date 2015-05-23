@@ -61,7 +61,7 @@ public class Manipulate {
 			//mycommons.db.SQLString sql=mycommons.routines.db.Manipulate.createSQLInsertRecord(para_to_Table, para_fields, para_resultset_From);
 			mycommons.db.SQLString sql=mycommons.routines.db.Manipulate.createSQLInsertRecord(para_to_Table, para_resultset_From);
 			//a test
-			System.out.println(sql.toString());
+			//System.out.println(sql.toString());
 			//execute sql string
 			para_to_Statement.execute(sql.toString());
 		}catch(Exception e){
@@ -161,6 +161,7 @@ public class Manipulate {
 		}
 		return rv;
 	}
+	/***
 	private static String createSQLInsertRecordValuesGetFieldValue(java.sql.ResultSet para_ResultSet,int para_Column_Idx){
 		
 		String rv=mycommons.constants.Generic.CS_SPACE;
@@ -181,7 +182,8 @@ public class Manipulate {
 		}
 		return rv;
 	}
-	/***
+	***/
+	
 	private static String createSQLInsertRecordValuesGetFieldValue(java.sql.ResultSet para_ResultSet,int para_Column_Idx){
 		
 		String rv=mycommons.constants.Generic.CS_SPACE;
@@ -199,7 +201,7 @@ public class Manipulate {
 		}
 		return rv;
 	}
-	***/
+	
 	private static String getUnicode_N(java.sql.ResultSetMetaData para_rstMetaData,int para_Column_Idx,String value){
 		
 		String rv=mycommons.constants.Generic.CS_SPACE;;
