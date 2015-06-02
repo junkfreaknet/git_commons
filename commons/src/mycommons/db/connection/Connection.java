@@ -55,11 +55,11 @@ public class Connection {
 			//create a db connections			
 			Class.forName(source.getForName().toStringValue());
 			connectionString=this.createConnectionString(source);
-			this.connection=java.sql.DriverManager.getConnection(connectionString);
 			//System.out.println(connectionString);
+			this.connection=java.sql.DriverManager.getConnection(connectionString);
 		}catch(Exception e){
 			mycommons.logging.Logging.severe(e.toString());
-			mycommons.logging.Logging.severe("failed in create connection.stop program.");
+			mycommons.logging.Logging.severe("aha failed in create connection.stop program.");
 			System.exit(mycommons.constants.System.CS_EXIT_ERROR);
 		}
 
